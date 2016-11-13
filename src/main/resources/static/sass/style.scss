@@ -1,0 +1,162 @@
+$font-stack: Helvetica, sans-serif;
+$primary-color: #333;
+$w100: 80%;
+$h100: 100%; // height 100%
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+html, body {
+  width: $w100;
+  height: $w100;
+  margin: 0;
+}
+
+#header {
+  background: black;
+  color: white;
+  margin-top: -21px;
+  height: auto;
+  min-height: 100px;
+  overflow: auto;
+  padding: 10px;
+}
+
+#body {
+  min-height: $w100;
+  width: 1400px;
+  margin: 0 auto;
+}
+
+#content {
+  padding-bottom: 1.9em;
+  position: relative;
+  height: auto;
+  min-height: $w100;
+  overflow: auto;
+}
+
+#footer {
+  height: 1.9em;
+  margin-top: -1.9em;
+  background: black;
+  color: white;
+  p {
+    text-align: center;
+  }
+}
+
+.d-table {
+  width: 60%;
+  border: 1px solid black;
+  margin: 0;
+  padding: 0;
+  table-layout: fixed;
+  tr {
+    th {
+      padding: 5px;
+      background: grey;
+    }
+    td {
+      padding: 5px;
+    }
+  }
+}
+
+.box-layout {
+  width: $w100;
+  clear: both;
+  margin-bottom: 1px;
+  position: relative;
+  height: auto;
+  min-height: $w100;
+  overflow: auto;
+}
+
+.box-left {
+  width: 22%;
+  min-width: 10%;
+  height: auto;
+  float: left;
+  background: darkgreen;
+  color: white;
+  position: absolute;
+  top: 0;
+}
+
+.box-right {
+  width: 77%;
+  min-width: 30%;
+  background: brown;
+  float: right;
+  color: white;
+}
+
+.box-top {
+  width: $w100;
+  background: rebeccapurple;
+}
+
+.box-bottom {
+  width: $w100;
+  background: black;
+}
+
+.menu {
+  li {
+    float: left;
+    color: white;
+    list-style: none;
+    margin-right: 15px;
+  }
+  li:hover {
+    color: red;
+    cursor: pointer;
+  }
+}
+
+// Mixins
+.box {
+  @include border-radius(10px);
+}
+
+// Extend/Inheritance
+.message {
+  border: 1px solid #ccc;
+  padding: 11px;
+  color: #333;
+}
+
+.success {
+  @extend .message;
+  border-color: green;
+}
+
+.error {
+  @extend .message;
+  border-color: red;
+}
+
+.warning {
+  @extend .message;
+  border-color: yellow;
+}
+
+// Operators
+.container {
+  width: 100%;
+}
+
+article[role="main"] {
+  float: left;
+  width: 600px / 960px * 100%;
+}
+
+aside[role="complementary"] {
+  float: right;
+  width: 300px / 960px * 100%;
+}
